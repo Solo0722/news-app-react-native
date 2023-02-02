@@ -7,6 +7,7 @@ export const ACCOUNTNAVIGATOR = "Account Navigator";
 
 //screens
 export const HOME = "Home";
+export const ARTICLEDETAIL = "Article Detail";
 export const SEARCH = "Search";
 export const USER_ACCOUNT = "User Account";
 export const USER_BOOKMARKS = "User Bookmarks";

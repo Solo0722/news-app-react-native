@@ -1,13 +1,13 @@
-import { StatusBar } from "expo-status-bar";
 import { NativeBaseProvider, Button } from "native-base";
 import { useCallback } from "react";
-import { colors, nativebaseTheme } from "./src/constants/theme";
+import { nativebaseTheme } from "./src/constants/theme";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { setCustomText } from "react-native-global-props";
 import "react-native-gesture-handler";
-import TabNavigator from "./src/navigations/TabNavigator";
 import { NavigationContainer } from "@react-navigation/native";
+import GlobalProvider from "./src/context/context";
+import Main from "./src/navigations/main";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -39,10 +39,11 @@ export default function App() {
 
   return (
     <NativeBaseProvider theme={nativebaseTheme}>
-      <StatusBar style="light" translucent />
-      <NavigationContainer>
-        <TabNavigator />
-      </NavigationContainer>
+      <GlobalProvider>
+        <NavigationContainer>
+          <Main />
+        </NavigationContainer>
+      </GlobalProvider>
     </NativeBaseProvider>
   );
 }
